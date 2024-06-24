@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face{
@@ -20,6 +21,7 @@
 
 html, body {
   font-family: Roboto-Regular;
+  background-color: #e5e5e5;
 }
 
 #container {
@@ -30,9 +32,22 @@ html, body {
   max-width: 1200px;
 }
 
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
 #header {
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+  width: 100vw;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: sticky;
+  background-color: #fff;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0px 0px 2px 2px #6d6d6d;
 }
 
 #nav {
@@ -40,8 +55,6 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  position: sticky;
-  z-index: 999;
 }
 
 #search-wrapper {
@@ -85,11 +98,16 @@ html, body {
   color: #fff;
 }
 
-.action-form {
-  margin-left: auto;
-  margin-right: auto;
+dialog {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   max-width: 480px;
+}
+
+.action-form {
   padding: 16px;
   border-radius: 20px;
 }
@@ -153,4 +171,69 @@ html, body {
   border: none;
   outline: none;
   font-size: 1rem;
+}
+
+#notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+main {
+  margin-top: 4vh;
+}
+
+.note-wrapper {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#note-title {
+  overflow-wrap: break-word;
+  font-size: 1rem;
+}
+
+.category {
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+.home {
+  background-color: #4edf4e;
+}
+
+.personal {
+  background-color: #b12861;
+}
+
+.business {
+  background-color: #ec551e;
+}
+
+.note-functionalities {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#note-description {
+  margin-top: 10px;
+  height: 150px;
+  overflow-wrap: break-word;
+}
+
+#note-date {
+  text-align: right;
+  color: #525252;
 }
