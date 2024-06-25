@@ -12,6 +12,7 @@ const note = {
   category: "",
   description: "",
   date: "",
+  noteIndex: null,
 }
 
 newNoteDescription.addEventListener("input", () => {
@@ -34,6 +35,7 @@ document.querySelectorAll(".cancel").forEach(item => {
   item.addEventListener("click", () => {
     closeDialog("add-note-dialog")
     closeDialog("edit-note-dialog")
+    closeDialog("delete-note-dialog")
   })
 })
 
@@ -57,7 +59,9 @@ const addNewNote = () => {
   let category = newNoteCategory.value
   let description = newNoteDescription.value
   let date = new Date().toLocaleDateString("en-GB", {dateStyle: "long"})
-  notes.unshift({...note, id, title, category, description, date})
+  let noteIndex = notes.length
+  notes.unshift({...note, id, title, category, description, date, noteIndex})
+  console.log(notes);
   renderNotes()
   document.getElementById("add-note-form").reset()
 }
@@ -92,3 +96,17 @@ const confirmEdit = () => {
   document.getElementById("add-note-form").reset()
 }
 
+let itemToDelete 
+const openDeleteDialog = (el) => {
+  openDialog("delete-note-dialog")
+  for(let i = 0; i < notes.length; i++) {
+    if(notes[i].id == el.parentElement.parentElement.parentElement.id) {
+      itemToDelete = i
+    }
+  }
+}
+
+const deleteNote = () => {
+  notes.splice(itemToDelete, 1)
+  renderNotes()
+}

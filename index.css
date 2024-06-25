@@ -237,3 +237,7 @@ main {
   text-align: right;
   color: #525252;
 }
+
+.delete {
+  background-color: #d73737;
+}
