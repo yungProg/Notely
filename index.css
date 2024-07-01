@@ -241,3 +241,26 @@ main {
 .delete {
   background-color: #d73737;
 }
+
+.checked {
+  opacity: 0.5;
+  filter: brightness(0.5);
+}
+
+.checked * {
+  filter: grayscale(0.4);
+  text-decoration: line-through;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
