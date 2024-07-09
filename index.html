@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="index.css" />
     <title>BigDevSoon - Notely Project</title>
   </head>
-  <body>
+  <body onload="noNote()">
       <header id="header">
         <nav id="nav">
           <div id="search-wrapper">
@@ -26,6 +26,18 @@
       <div id="container">
       <main>
         <h1>Your Notes</h1>
+        <div class="fils">
+          <div class="cat-wrapper">
+            <span class="cat active-cat">All</span>
+            <span class="cat">Personal</span>
+            <span class="cat">Business</span>
+            <span class="cat">Home</span>
+          </div>
+          <label for="show-completed">
+            <input type="checkbox" id="show-completed" onclick="completedNotes(this)">
+            Show completed notes only
+          </label>
+        </div>
         <div id="notes-container">
           <template id="note-template">
             <div class="note-wrapper completed">
@@ -67,8 +79,8 @@
           </div>
           <div class="form-main">
             <div class="field-input-wrapper">
-              <label for="form-title-new">Title</label>
-              <input type="text" name="form-title-new" id="form-title-new" maxlength="50">
+              <label for="form-title-new">Title <span class="req">*</span></label>
+              <input type="text" name="form-title-new" id="form-title-new" maxlength="50" required>
             </div>
             <div class="field-input-wrapper">
               <label for="form-category-new">Category</label>
@@ -79,8 +91,8 @@
               </select>
             </div>
             <div class="field-input-wrapper">
-              <div><label for="form-description-new">Description</label><span>(Optional)</span><span id="word-count-new">0</span><span>/ 200</span></div>
-              <textarea placeholder="Add description ..." class="form-description-new" name="form-description-new" id="form-description-new" maxlength="200" rows="8"></textarea>
+              <div><label for="form-description-new">Description <span class="req">*</span></label><span>(Optional)</span><span id="word-count-new">0</span><span>/ 200</span></div>
+              <textarea placeholder="Add description ..." class="form-description-new" name="form-description-new" id="form-description-new" maxlength="200" rows="8" required></textarea>
             </div>
           </div>
           <div class="form-footer">
@@ -101,8 +113,8 @@
           </div>
           <div class="form-main">
             <div class="field-input-wrapper">
-              <label for="form-title-edit">Title</label>
-              <input type="text" name="form-title-edit" id="form-title-edit" maxlength="50">
+              <label for="form-title-edit">Title <span class="req">*</span></label>
+              <input type="text" name="form-title-edit" id="form-title-edit" maxlength="50" required>
             </div>
             <div class="field-input-wrapper">
               <label for="form-category-new">Category</label>
@@ -113,8 +125,8 @@
               </select>
             </div>
             <div class="field-input-wrapper">
-              <div><label for="form-description-new">Description</label><span>(Optional)</span><span id="word-count-edit">0</span><span>/ 200</span></div>
-              <textarea placeholder="Add description ..." class="form-description-edit" name="form-description-edit" id="form-description-edit" maxlength="200" rows="8"></textarea>
+              <div><label for="form-description-new">Description <span class="req">*</span></label><span>(Optional)</span><span id="word-count-edit">0</span><span>/ 200</span></div>
+              <textarea placeholder="Add description ..." class="form-description-edit" name="form-description-edit" id="form-description-edit" maxlength="200" rows="8" required></textarea>
             </div>
           </div>
           <div class="form-footer">
